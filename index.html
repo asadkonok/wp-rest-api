@@ -1,0 +1,825 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Rest API documentation</title>
+	
+	<meta name="author" content="BoonMedia">
+	<meta name="copyright" content="BoonMedia">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic,700' rel='stylesheet' type='text/css'>
+	
+	<link rel="stylesheet" href="css/documenter_style.css" media="all">
+	
+	
+	<link rel="stylesheet" href="css/shDocumenter.css" media="screen">
+	
+	
+</head>
+<body>
+	<div id="documenter_sidebar">
+		<h2 id="documenter-logo"><a href="#overview" >REST API </a></h2>
+		<ol id="documenter_nav">
+			<li><a class="current" href="#overview">Overview</a></li>
+			<li><a href="#start">Getting Started</a></li>
+			<li><a href="#data">Sample Data</a></li>
+			<li><a href="#get_post">Get Posts</a></li>
+			<li><a href="#get_categories">Get Categories</a></li>
+			<li><a href="#get_taxonomies">Get Taxonomies</a></li>
+			<li><a href="#get_tags">Get Tags</a></li>	
+			<li><a href="#return_type">Return Type</a></li>
+			<li><a href="#example">Example Call</a></li>
+
+		</ol>
+	</div>
+
+	<div id="documenter_content">
+		
+		<!-- API document Overview Section -->
+		<section id="overview">
+
+			<h1>Rest API Documentation</h1>
+			<h3>To access Rest API with Specific Parameters</h3>
+			<hr>
+				<ul>
+					<li>Created: 20/04/2019</li>
+					<li>Latest Update: 22/04/2019</li>
+					<li>Version: 1.0</li>
+					<li>By: <a href="" target="_blank" title="">Systway Team</a></li>
+
+		</section>
+
+		<!-- /API document Overview Section -->
+
+
+		<!-- API document Start Section -->
+		<section id="start">
+			<h3>Getting Started</h3>
+
+			<hr class="notop">
+				<p>Rest API will provide JSON data based on passing parameters. </p>
+				<p>
+				<b>API END POINT: </b>
+					<p><pre> Posts: http://example.com/wp-json/wp/v2/posts/</pre></p> 
+					<p><pre> Categories: http://example.com/wp-json/wp/v2/categories/</pre></p>
+					<p><pre> Taxonomies: http://example.com/wp-json/wp/v2/taxonomies/</pre></p>
+					<p><pre> Tags: http://example.com/wp-json/wp/v2/tags/</pre></p>
+				</p>
+
+		</section>
+		<!-- /API document Start Section -->
+
+
+		<!-- API document Getting Data Section -->
+		<section id="data">
+			<h3>Sample Data</h3>
+
+			<hr class="notop">
+				<p> With vaild parameters API will provide JSON data. Here is the sample data </p>
+				
+				<pre>
+[
+  {
+    "id": 14,
+    "date": "2019-04-16T10:49:35",
+    "date_gmt": "2019-04-16T10:49:35",
+    "guid": {
+      "rendered": "http://example.com/?p=14"
+    },
+    "modified": "2019-04-22T12:03:22",
+    "modified_gmt": "2019-04-22T12:03:22",
+    "slug": "pellentesque-euismod-nisi-sit",
+    "status": "publish",
+    "type": "post",
+    "link": "http://example.com/pellentesque-euismod-nisi-sit/",
+    "title": {
+      "rendered": "Pellentesque euismod nisi sit"
+    },
+    "content": {
+      "rendered": "\n<p>Nulla interdum tincidunt turpis, in imperdiet diam pellentesque tristique. </p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>Nulla interdum tincidunt turpis, in imperdiet diam pellentesque tristique.</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 39,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": [],
+    "categories": [
+      2,
+      3
+    ],
+    "tags": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://example.com/wp-json/wp/v2/posts/14"
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://example.com/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://example.com/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "http://example.com/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "http://example.com/wp-json/wp/v2/comments?post=14"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 2,
+          "href": "http://example.com/wp-json/wp/v2/posts/14/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 49,
+          "href": "http://example.com/wp-json/wp/v2/posts/14/revisions/49"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "http://example.com/wp-json/wp/v2/media/39"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://example.com/wp-json/wp/v2/media?parent=14"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "http://example.com/wp-json/wp/v2/categories?post=14"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "http://example.com/wp-json/wp/v2/tags?post=14"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]	
+				</pre>	
+
+		</section>
+		<!-- /API document Getting Data Section -->
+
+		<!-- API document Parameters get_posts Section -->
+		<section id="get_post" class="get_post">
+			<h3>Get Posts</h3>
+
+			<p>
+				<b>API END POINT TO GET Posts: </b>
+					<p><pre>http://example.com/wp-json/wp/v2/posts/</pre></p> 
+			</p>
+
+			<hr class="notop">
+				<p> API needs to have right parameters to get right data. Here is the list of available parameters. </p>
+				
+				<table class="rbtable">
+						<thead>
+							<tr>
+								<th>Parameter</th>
+								<th>Description</th>
+								<th>Example</th>
+								<th>Default</th>
+								<th>Required</th>
+							</tr>
+
+						</thead>
+						<tbody>
+							<tr>
+								<td>context</td>
+								<td>Scope under which the request is made; determines fields present in response.</td>
+								<td>view or embed or edit</td>
+								<td>view</td>
+								<td>Yes</td>
+							</tr>
+							
+							<tr>
+								<td>page</td>
+								<td>Specify the page of results to return. It returns the second page of posts results. </td>
+								<td>1 or 2 or 3 or 4 or etc</td>
+								<td>None</td>
+								<td>Yes</td>
+							</tr>
+
+							<tr>
+								<td>per_page</td>
+								<td>Specify the number of records to return in one request, specified as an integer from 1 to 100. It will return only the first post in the collection. </td>
+								<td> 1 or 10 or etc</td>
+								<td>10</td>
+								<td>Yes</td>
+							</tr>
+
+							<tr>
+								<td>search</td>
+								<td>Limit results to those matching a string. For searching in posts</td>
+								<td>"some text"</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+							
+							<tr>
+								<td>after</td>
+								<td>Limit response to posts published after a given ISO8601 compliant date</td>
+								<td>none</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+
+							<tr>
+								<td>author</td>
+								<td>Limit result set to posts assigned to specific authors. Author id can be used.</td>
+								<td>2</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+
+							<tr>
+								<td>author_exclude</td>
+								<td>Ensure result set excludes posts assigned to specific authors. Author id can be used. </td>
+								<td>2</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+
+							<tr>
+								<td>before</td>
+								<td>Limit response to posts published before a given ISO8601 compliant date. </td>
+								<td>none</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+							
+							<tr>
+								<td>exclude</td>
+								<td>Ensure result set excludes specific post IDs.</td>
+								<td>27</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+
+							<tr>
+								<td>include</td>
+								<td>Limit result set to specific post IDs. </td>
+								<td>27</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+
+							<tr>
+								<td>offset</td>
+								<td>Offset will use the default number of posts per page</td>
+								<td>6 or 12 etc</td>
+								<td>None</td>
+								<td>Yes</td>
+							</tr>
+							
+							<tr>
+								<td>order</td>
+								<td>Control whether results are returned in ascending or descending order. </td>
+								<td>asc or desc</td>
+								<td>desc</td>
+								<td>Yes</td>
+							</tr>
+
+							<tr>
+								<td>orderby</td>
+								<td>Control the field by which the collection is sorted </td>
+								<td>date or relevance or id or include or title or slug</td>
+								<td>date</td>
+								<td>Yes</td>
+							</tr>
+							
+							<tr>
+								<td>slug</td>
+								<td>Limit result set to posts with one or more specific slugs. Use comma when more slug will be used. </td>
+								<td>cras-ac-purus-vitae-neque-lacinia</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>status</td>
+								<td>Limit result set to posts assigned one or more statuses.</td>
+								<td>publish,pending,draft</td>
+								<td>publish</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>categories</td>
+								<td>Limit result set to all items that have the specified term assigned in the categories taxonomy. Multiple categories can be separated by comma.</td>
+								<td>2 or 2,3</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>categories_exclude</td>
+								<td>Limit result set to all items except those that have the specified term assigned in the categories taxonomy. Multiple categories can be separated by comma.</td>
+								<td>2 or 2,3</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>tags</td>
+								<td>Limit result set to all items that have the specified term assigned in the tags taxonomy. Multiple tags can be separated by comma.</td>
+								<td>6,9</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>tags_exclude</td>
+								<td>Limit result set to all items except those that have the specified term assigned in the tags taxonomy. </td>
+								<td>6</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>sticky</td>
+								<td>Limit result set to items that are sticky. </td>
+								<td>true or false</td>
+								<td>None</td>
+								<td>Yes</td>
+							</tr>
+
+						</tbody>
+					</table>	
+
+		</section>
+		<!-- /API document Parameters get_posts Section -->
+
+		<!-- API document get_categories Section -->
+		<section id="get_categories" class="get_categories">
+			<h3>Get Categories</h3>
+
+			<p>
+				<b>API END POINT TO GET Categories: </b>
+				<p><pre>http://example.com/wp-json/wp/v2/categories/</pre></p> 
+			</p>
+
+			<hr class="notop">
+			<p> API needs to have right parameters to get right data. Here is the list of available parameters. </p>
+				
+				<table class="rbtable">
+						<thead>
+							<tr>
+								<th>Parameter</th>
+								<th>Description</th>
+								<th>Example</th>
+								<th>Default</th>
+								<th>Required</th>
+							</tr>
+
+						</thead>
+						<tbody>
+							<tr>
+								<td>context</td>
+								<td>Scope under which the request is made; determines fields present in response.</td>
+								<td>view, embed, edit</td>
+								<td>view</td>
+								<td>Yes</td>
+							</tr>
+
+							<tr>
+								<td>page</td>
+								<td>Current page of the collection.</td>
+								<td>1 or 2 or etc</td>
+								<td>1</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>per_page</td>
+								<td>Maximum number of items to be returned in result set.</td>
+								<td>10 or 12</td>
+								<td>10</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>search</td>
+								<td>Limit results to those matching a string.</td>
+								<td>some text</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>exclude</td>
+								<td>Ensure result set excludes specific IDs. Multiple IDs can be separated by comma.</td>
+								<td>2 or 2,3 </td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>include</td>
+								<td>Limit result set to specific IDs. Multiple IDs can be separated by comma.</td>
+								<td>2 or 2,3</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+							<tr>
+								<td>order</td>
+								<td>Order sort attribute ascending or descending.</td>
+								<td>asc or desc</td>
+								<td>asc</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>orderby</td>
+								<td>Sort collection by term attribute.</td>
+								<td>id or include or name or slug or term_group or description or count</td>
+								<td>name</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>hide_empty</td>
+								<td> Whether to hide terms not assigned to any posts. </td>
+								<td>true or false</td>
+								<td>None</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>parent</td>
+								<td>Limit result set to terms assigned to a specific parent. Parent terms return its child terms. Parent terms id will be used.</td>
+								<td>2 or 3 or etc</td>
+								<td>None</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>post</td>
+								<td>Limit result set to terms assigned to a specific post. </td>
+								<td>27 or 28 or etc</td>
+								<td>None</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>slug</td>
+								<td>Limit result set to terms with one or more specific slugs. Multiple slugs can be separated by comma.</td>
+								<td>featured or uncategorized or featured,uncategorized</td>
+								<td>None</td>
+								<td>No</td>
+							</tr>
+						</tbody>
+					</table>	
+
+		</section>
+		<!-- /API document get_categories Section -->
+
+		<!-- API document get_taxonomies Section -->
+		<section id="get_taxonomies" class="get_taxonomies">
+				<h3>Get Taxonomies</h3>
+	
+				<p>
+					<b>API END POINT TO GET Taxonomies: </b>
+					<p><pre>http://example.com/wp-json/wp/v2/taxonomies/</pre></p> 
+				</p>
+	
+				<hr class="notop">
+				<p> API needs to have right parameters to get right data. Here is the list of available parameters. </p>
+					
+				<table class="rbtable">
+					<thead>
+						<tr>
+							<th>Parameter</th>
+							<th>Description</th>
+							<th>Example</th>
+							<th>Default</th>
+							<th>Required</th>
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr>
+							<td>context</td>
+							<td>Scope under which the request is made; determines fields present in response. </td>
+							<td>view, embed, edit</td>
+							<td>view</td>
+							<td>No</td>
+						</tr>
+
+						<tr>
+							<td>type</td>
+							<td>Limit results to taxonomies associated with a specific post type. </td>
+							<td>post or page or custom post type</td>
+							<td>None</td>
+							<td>No</td>
+						</tr>
+						
+					</tbody>
+				</table>
+											
+		</section>
+		<!-- /API document get_taxonomies Section -->
+		
+		<!-- API document get_tags Section -->
+		<section id="get_tags" class="get_tags">
+			<h3>Get Tags</h3>
+
+			<p>
+				<b>API END POINT TO GET Tags: </b>
+				<p><pre>http://example.com/wp-json/wp/v2/tags/</pre></p> 
+			</p>
+
+			<hr class="notop">
+			<p> API needs to have right parameters to get right data. Here is the list of available parameters. </p>
+				
+			<table class="rbtable">
+				<thead>
+					<tr>
+						<th>Parameter</th>
+						<th>Description</th>
+						<th>Example</th>
+						<th>Default</th>
+						<th>Required</th>
+					</tr>
+
+				</thead>
+				<tbody>
+					<tr>
+						<td>context</td>
+						<td>Scope under which the request is made; determines fields present in response. </td>
+						<td>view, embed, edit</td>
+						<td>view</td>
+						<td>Yes</td>
+					</tr>
+
+					<tr>
+						<td>page</td>
+						<td>Current page of the collection.</td>
+						<td>1 or 2 or etc</td>
+						<td>1</td>
+						<td>Yes</td>
+					</tr>
+					<tr>
+						<td>per_page</td>
+						<td>Maximum number of items to be returned in result set.</td>
+						<td>10 or 12 or etc</td>
+						<td>10</td>
+						<td>Yes</td>
+					</tr>
+					<tr>
+						<td>search</td>
+						<td>Limit results to those matching a string.</td>
+						<td>some text</td>
+						<td>None</td>
+						<td>No</td>
+					</tr>
+					<tr>
+						<td>exclude</td>
+						<td>Ensure result set excludes specific IDs. Multiple IDs can be separated by comma. </td>
+						<td>6 or 9 or or 6,9 or etc</td>
+						<td>None</td>
+						<td>Yes</td>
+					</tr>
+					<tr>
+						<td>include</td>
+						<td>Limit result set to specific IDs. Multiple IDs can be separated by comma. </td>
+						<td>6 or 9 or or 6,9 or etc</td>
+						<td>None</td>
+						<td>Yes</td>
+					</tr>
+					<tr>
+						<td>offset</td>
+						<td>Offset the result set by a specific number of items. </td>
+						<td>6 or 12 or etc</td>
+						<td>None</td>
+						<td>Yes</td>
+					</tr>
+					<tr>
+						<td>order</td>
+						<td>Order sort attribute ascending or descending.</td>
+						<td>asc or desc</td>
+						<td>asc</td>
+						<td>Yes</td>
+					</tr>
+					<tr>
+						<td>orderby</td>
+						<td>Sort collection by term attribute.</td>
+						<td>id or include or name or slug or term_group or description or count</td>
+						<td>name</td>
+						<td>Yes</td>
+					</tr>
+					<tr>
+						<td>hide_empty</td>
+						<td>Whether to hide terms not assigned to any posts. </td>
+						<td>true or false</td>
+						<td>None</td>
+						<td>Yes</td>
+					</tr>
+					
+					<tr>
+						<td>post</td>
+						<td>Limit result set to terms assigned to a specific post.</td>
+						<td>None</td>
+						<td>None</td>
+						<td>Yes</td>
+					</tr>
+					<tr>
+						<td>slug</td>
+						<td>Limit result set to terms with one or more specific slugs. Multiple slugs can be separated by comma </td>
+						<td>test1 or test1,test2</td>
+						<td>None</td>
+						<td>Yes</td>
+					</tr>
+				</tbody>
+			</table>	
+	
+		</section>
+		<!-- /API document get_tags Section -->
+
+		
+
+		<!-- API document Return Section -->
+		<section id="return_type">
+			<h3>Return Type</h3>
+
+			<hr class="notop">
+			<p><Label>Sample API</label>
+			<pre>http://example.com/wp-json/wp/v2/posts/?categories=2&per_page=1&order=asc&orderby=date</pre>
+			</p>
+			<p> API will return data as JSON format. Here is the example of JSON data.</p>
+				
+			<pre>
+[
+  {
+    "id": 14,
+    "date": "2019-04-16T10:49:35",
+    "date_gmt": "2019-04-16T10:49:35",
+    "guid": {
+      "rendered": "http://example.com/?p=14"
+    },
+    "modified": "2019-04-22T12:03:22",
+    "modified_gmt": "2019-04-22T12:03:22",
+    "slug": "pellentesque-euismod-nisi-sit",
+    "status": "publish",
+    "type": "post",
+    "link": "http://example.com/pellentesque-euismod-nisi-sit/",
+    "title": {
+      "rendered": "Pellentesque euismod nisi sit"
+    },
+    "content": {
+      "rendered": "\n<p>Nulla interdum tincidunt turpis, in imperdiet diam pellentesque tristique. </p>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>Nulla interdum tincidunt turpis, in imperdiet diam pellentesque tristique.</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 39,
+    "comment_status": "open",
+    "ping_status": "open",
+    "sticky": false,
+    "template": "",
+    "format": "standard",
+    "meta": [],
+    "categories": [
+      2,
+      3
+    ],
+    "tags": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://example.com/wp-json/wp/v2/posts/14"
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://example.com/wp-json/wp/v2/posts"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://example.com/wp-json/wp/v2/types/post"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "http://example.com/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "http://example.com/wp-json/wp/v2/comments?post=14"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 2,
+          "href": "http://example.com/wp-json/wp/v2/posts/14/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 49,
+          "href": "http://example.com/wp-json/wp/v2/posts/14/revisions/49"
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "embeddable": true,
+          "href": "http://example.com/wp-json/wp/v2/media/39"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://example.com/wp-json/wp/v2/media?parent=14"
+        }
+      ],
+      "wp:term": [
+        {
+          "taxonomy": "category",
+          "embeddable": true,
+          "href": "http://example.com/wp-json/wp/v2/categories?post=14"
+        },
+        {
+          "taxonomy": "post_tag",
+          "embeddable": true,
+          "href": "http://example.com/wp-json/wp/v2/tags?post=14"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]
+			</pre>	
+
+		</section>
+		<!-- /API document Return Type Section -->
+
+
+		<!-- API document Example Section -->
+		<section id="example">
+			<h3>Example Call</h3>
+
+			<hr class="notop">
+			<p> Here is the simplest form of API call </p>
+			<p><strong>Posts:</strong></p>
+			<pre>http://example.com/wp-json/wp/v2/posts/?categories=2&per_page=2&order=asc&orderby=date</pre> 
+			
+			<p><strong>Categories:</strong></p>
+			
+			<pre>http://example.com/wp-json/wp/v2/categories/?exclude=1&per_page=8&order=asc&orderby=name</pre> 
+			
+			<p><strong>Taxonomies:</strong></p>
+			
+			<pre>http://example.com/wp-json/wp/v2/taxonomies/?type=post</pre>
+			
+			<p><strong>Tags:</strong></p>
+			
+			<pre>http://example.com/wp-json/wp/v2/tags/?exclude=6&hide_empty=true&per_page=8&order=asc&orderby=name</pre> 
+			
+		</section>
+		<!-- /API document Sorting Section -->
+
+	</div> <!-- END #documenter_content -->
+
+</body>	
+	<script src="js/jquery.1.6.4.js"></script>
+	<script src="js/jquery.scrollTo-1.4.2-min.js"></script>
+	<script src="js/jquery.easing.js"></script>
+	<script>document.createElement('section');var duration=913,easing='easeOutQuart';</script>
+	<script src="js/script.js"></script>
+</html>
